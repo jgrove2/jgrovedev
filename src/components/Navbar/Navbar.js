@@ -3,7 +3,7 @@ import { Fragment } from 'react'
 import { Disclosure } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const navigation = [
     { name: 'Home', href: '/', link: 0 },
@@ -16,7 +16,13 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
-    const [focusLink, setLink] = useState(1);
+    const [focusLink, setLink] = useState();
+    useEffect(() => {
+        const href = window.location.href;
+        if (href.includes('/projects')) { setLink(2); }
+        else if (href.includes('/about')) { setLink(1); }
+        else setLink(0);
+    }, []);
 
 
     return (
@@ -37,18 +43,22 @@ export default function Navbar() {
                                 </Disclosure.Button>
                             </div>
                             <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                                <div className="flex-shrink-0 flex items-center">
-                                    <img
-                                        className="block lg:hidden h-9 w-auto"
-                                        src={require("./jgrove-logo.png")}
-                                        alt="jgrove-logo-small"
-                                    />
-                                    <img
-                                        className="hidden lg:block h-9 w-auto"
-                                        src={require("./jgrove-full2.png")}
-                                        alt="Workflow"
-                                    />
-                                </div>
+                                <Link
+                                    to="/"
+                                    onClick={() => setLink(0)}>
+                                    <div className="flex-shrink-0 flex items-center">
+                                        <img
+                                            className="block lg:hidden h-9 w-auto"
+                                            src={require("./jgrove-logo.png")}
+                                            alt="jgrove-logo-small"
+                                        />
+                                        <img
+                                            className="hidden lg:block h-9 w-auto"
+                                            src={require("./jgrove-full2.png")}
+                                            alt="Workflow"
+                                        />
+                                    </div>
+                                </Link>
                                 <div className="hidden sm:block sm:ml-6">
                                     <div className="flex space-x-4">
                                         {navigation.map((item) => (
@@ -60,7 +70,9 @@ export default function Navbar() {
                                                     'px-3 py-2 rounded-md text-sm font-medium'
                                                 )}
                                                 aria-current={(focusLink === item.link) ? 'page' : undefined}
-                                                onClick={() => setLink(item.link)}
+                                                onClick={() => {
+                                                    setLink(item.link);
+                                                }}
                                             >
                                                 {item.name}
                                             </Link>
