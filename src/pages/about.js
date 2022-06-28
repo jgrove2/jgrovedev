@@ -1,8 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import pdf from './resume.pdf';
+// import { Viewer, SpecialZoomLevel, Worker } from '@react-pdf-viewer/core';
 
-const About = () => {
+const About = (props) => {
+    useEffect(() => {
+        document.title = props.title || "";
+    }, [props.title]);
+
     return (
-        <h1>About</h1>
+        <>
+            <iframe
+                title="file"
+                className='h-90v w-screen'
+                src={pdf}
+            />
+        </>
     );
 }
 

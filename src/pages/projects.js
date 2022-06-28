@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ProjectData from '../components/ProjectCard/ProjectData';
 
 
-const Projects = () => {
-    const [items, setItems] = useState(ProjectData);
+const Projects = (props) => {
+    const [items] = useState(ProjectData);
+    useEffect(() => {
+        document.title = props.title || "";
+    }, [props.title]);
+
     return (
         <>
             <div className="flex flex-col items-center justify-center">
