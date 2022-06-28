@@ -9,11 +9,11 @@ const Projects = (props) => {
     }, [props.title]);
 
     return (
-        <>
-            <div className="flex flex-col items-center justify-center">
+        <div className='min-h-screen'>
+            < div className="flex flex-col items-center justify-center" >
                 <h1 className="font-extrabold text-[8vw]">Projects</h1>
                 <span className="h-1 w-full bg-gray-200 rounded-full lg:w-9/12"></span>
-            </div>
+            </div >
             <div className="flex mt-6 flex-wrap items-start ml-4 mr-4">
                 {items.map((item) => {
                     const { url, name, desc, id } = item;
@@ -27,7 +27,7 @@ const Projects = (props) => {
                     )
                 })}
             </div>
-        </>
+        </div>
     );
 }
 

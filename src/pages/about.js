@@ -8,13 +8,13 @@ const About = (props) => {
     }, [props.title]);
 
     return (
-        <>
+        <div className='min-h-screen'>
             <iframe
                 title="file"
-                className='h-90v w-screen'
+                className='h-screen w-screen'
                 src={pdf}
             />
-        </>
+        </div>
     );
 }
 

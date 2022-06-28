@@ -8,9 +8,9 @@ const Home = (props) => {
         document.title = props.title || "";
     }, [props.title]);
     return (
-        <>
+        <div className='min-h-screen'>
             <div className='flex flex-col items-center justify-center h-80v space-y-2'>
-                <img className="bg-gray-800 bg-[center_top_1rem] rounded-full" alt="profile" src={require('./jgrove-logo.png')}></img>
+                <img className="rounded-full select-none" alt="profile" src={require('./jgrove-logo.png')}></img>
                 <h2 className='text-4xl font-bold'>Justin Grove</h2>
                 <h3 className='text-md'>CS Student</h3>
                 <div className='flex space-x-5 text-gray-800'>
@@ -25,7 +25,7 @@ const Home = (props) => {
                     </a>
                 </div>
             </div>
-        </>
+        </div>
     );
 }
 

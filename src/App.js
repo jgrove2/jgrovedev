@@ -3,6 +3,7 @@ import Navbar from './components/Navbar/Navbar';
 import About from './pages/about';
 import Home from './pages';
 import Projects from './pages/projects';
+import Footer from './components/Footer/Footer';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route path="/projects" element={<Projects title="Jgrove | Projects" />} />
         </Routes>
       </div>
+      <Footer />
     </>
 
   );
