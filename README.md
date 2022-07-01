@@ -9,4 +9,4 @@ Built with React, Tailwind, and deployed on AWS S3 buckets.
 
 ---
 ## Contributors
-- Justin Grove <github.com/jgrove2>
+- Justin Grove <https://www.github.com/jgrove2>
