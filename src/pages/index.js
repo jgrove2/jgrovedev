@@ -12,7 +12,7 @@ const Home = (props) => {
             <div className='flex flex-col items-center justify-center h-80v space-y-2'>
                 <img className="rounded-full select-none" alt="profile" src={require('./jgrove-logo.png')}></img>
                 <h2 className='text-4xl font-bold'>Justin Grove</h2>
-                <h3 className='text-md'>CS Student</h3>
+                <h3 className='text-md'>Cr Student</h3>
                 <div className='flex space-x-5 text-gray-800'>
                     <a href='https://www.linkedin.com/in/justinwgrove' target='_blank' rel='noreferrer'>
                         <BsLinkedin size='30' className='hover:text-gray-600' />
