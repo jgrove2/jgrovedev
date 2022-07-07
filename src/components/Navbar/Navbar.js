@@ -2,7 +2,7 @@
 import { Fragment } from 'react'
 import { Disclosure } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 const navigation = [
@@ -43,8 +43,8 @@ export default function Navbar() {
                                 </Disclosure.Button>
                             </div>
                             <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                                <Link
-                                    to="/"
+                                <a
+                                    href="/"
                                     onClick={() => setLink(0)}>
                                     <div className="flex-shrink-0 flex items-center">
                                         <img
@@ -58,13 +58,13 @@ export default function Navbar() {
                                             alt="Workflow"
                                         />
                                     </div>
-                                </Link>
+                                </a>
                                 <div className="hidden sm:block sm:ml-6">
                                     <div className="flex space-x-4">
                                         {navigation.map((item) => (
-                                            <Link
+                                            <a
                                                 key={item.name}
-                                                to={item.href}
+                                                href={item.href}
                                                 className={classNames(
                                                     (focusLink === item.link) ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                                                     'px-3 py-2 rounded-md text-sm font-medium'
@@ -75,7 +75,7 @@ export default function Navbar() {
                                                 }}
                                             >
                                                 {item.name}
-                                            </Link>
+                                            </a>
                                         ))}
                                     </div>
                                 </div>
@@ -86,10 +86,10 @@ export default function Navbar() {
                     <Disclosure.Panel className="sm:hidden">
                         <div className="px-2 pt-2 pb-3 space-y-1">
                             {navigation.map((item) => (
-                                <Link
+                                <a
                                     key={item.name}
                                     // as="Link"
-                                    to={item.href}
+                                    href={item.href}
                                     className={classNames(
                                         (focusLink === item.link) ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                                         'block px-3 py-2 rounded-md text-base font-medium'
@@ -98,7 +98,7 @@ export default function Navbar() {
                                     onClick={() => setLink(item.link)}
                                 >
                                     {item.name}
-                                </Link>
+                                </a>
                             ))}
                         </div>
                     </Disclosure.Panel>
